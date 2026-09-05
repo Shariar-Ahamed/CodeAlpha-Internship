@@ -65,15 +65,35 @@
 
           <!-- Secondary Actions: Sort + View Toggle -->
           <div class="controls-actions">
-            <!-- Sort Dropdown -->
-            <div class="sort-wrapper">
-              <span class="sort-label"><i class="ri-arrow-up-down-line"></i> Sort:</span>
-              <select id="sortSelect" class="sort-select" aria-label="Sort gallery photographs">
-                <option value="featured">Featured Curated</option>
-                <option value="likes-desc">Most Liked &bull; Popular</option>
-                <option value="title-asc">Title &bull; A &rarr; Z</option>
-                <option value="title-desc">Title &bull; Z &rarr; A</option>
-              </select>
+            <!-- Custom Modern Sort Dropdown -->
+            <div class="custom-dropdown" id="sortDropdown">
+              <button class="dropdown-trigger" id="sortTrigger" aria-haspopup="listbox" aria-expanded="false" type="button">
+                <span class="dropdown-label"><i class="ri-arrow-up-down-line"></i> Sort:</span>
+                <span class="dropdown-current" id="sortCurrentText">Featured Curated</span>
+                <i class="ri-arrow-down-s-line dropdown-arrow" id="dropdownArrow"></i>
+              </button>
+              <div class="dropdown-menu" role="listbox" id="sortMenu" aria-label="Sort options">
+                <div class="dropdown-item active" role="option" data-value="featured" aria-selected="true" tabindex="0">
+                  <i class="ri-sparkling-line item-icon"></i>
+                  <span>Featured Curated</span>
+                  <i class="ri-check-line check-icon"></i>
+                </div>
+                <div class="dropdown-item" role="option" data-value="likes-desc" aria-selected="false" tabindex="0">
+                  <i class="ri-heart-line item-icon"></i>
+                  <span>Most Liked &bull; Popular</span>
+                  <i class="ri-check-line check-icon"></i>
+                </div>
+                <div class="dropdown-item" role="option" data-value="title-asc" aria-selected="false" tabindex="0">
+                  <i class="ri-sort-alphabet-asc item-icon"></i>
+                  <span>Title &bull; A &rarr; Z</span>
+                  <i class="ri-check-line check-icon"></i>
+                </div>
+                <div class="dropdown-item" role="option" data-value="title-desc" aria-selected="false" tabindex="0">
+                  <i class="ri-sort-alphabet-desc item-icon"></i>
+                  <span>Title &bull; Z &rarr; A</span>
+                  <i class="ri-check-line check-icon"></i>
+                </div>
+              </div>
             </div>
 
             <!-- Layout View Toggle -->

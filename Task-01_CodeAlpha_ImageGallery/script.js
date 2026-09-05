@@ -521,12 +521,16 @@ const clearSearchBtn = document.getElementById("clearSearchBtn");
 const filterPills = document.querySelectorAll(".filter-pill");
 const photoCountText = document.getElementById("photoCountText");
 const emptyState = document.getElementById("emptyState");
-const resetFilterBtn = document.getElementById("resetFilterBtn");
 const masonryViewBtn = document.getElementById("masonryViewBtn");
 const balancedViewBtn = document.getElementById("balancedViewBtn");
-const sortSelect = document.getElementById("sortSelect");
 const favCountBadge = document.getElementById("favCount");
 const toastContainer = document.getElementById("toastContainer");
+
+// Custom Dropdown Elements
+const sortDropdown = document.getElementById("sortDropdown");
+const sortTrigger = document.getElementById("sortTrigger");
+const sortCurrentText = document.getElementById("sortCurrentText");
+const sortDropdownItems = document.querySelectorAll("#sortMenu .dropdown-item");
 
 // Lightbox Elements
 const lightboxModal = document.getElementById("lightboxModal");
@@ -961,11 +965,53 @@ filterPills.forEach((pill) => {
   });
 });
 
-// Sort Selector
-if (sortSelect) {
-  sortSelect.addEventListener("change", (e) => {
-    state.currentSort = e.target.value;
-    applyFilters();
+// Custom Sort Dropdown Logic
+if (sortTrigger && sortDropdown) {
+  sortTrigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = sortDropdown.classList.toggle("open");
+    sortTrigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  sortDropdownItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const val = item.dataset.value;
+      const text = item.querySelector("span").textContent;
+
+      // Update UI
+      sortDropdownItems.forEach((i) => {
+        i.classList.remove("active");
+        i.setAttribute("aria-selected", "false");
+      });
+      item.classList.add("active");
+      item.setAttribute("aria-selected", "true");
+      sortCurrentText.textContent = text;
+
+      // Close dropdown
+      sortDropdown.classList.remove("open");
+      sortTrigger.setAttribute("aria-expanded", "false");
+
+      // Apply Sort
+      state.currentSort = val;
+      applyFilters();
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!sortDropdown.contains(e.target)) {
+      sortDropdown.classList.remove("open");
+      sortTrigger.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  // Close dropdown on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && sortDropdown.classList.contains("open")) {
+      sortDropdown.classList.remove("open");
+      sortTrigger.setAttribute("aria-expanded", "false");
+    }
   });
 }
 
@@ -997,21 +1043,32 @@ clearSearchBtn.addEventListener("click", () => {
 });
 
 // Reset Filters Button (Empty state)
-resetFilterBtn.addEventListener("click", () => {
-  searchInput.value = "";
-  state.searchQuery = "";
-  clearSearchBtn.classList.remove("show");
-  
-  filterPills.forEach((p) => {
-    const isAll = p.dataset.category === "all";
-    p.classList.toggle("active", isAll);
-    p.setAttribute("aria-selected", isAll ? "true" : "false");
+const resetFilterBtn = document.getElementById("resetFilterBtn");
+if (resetFilterBtn) {
+  resetFilterBtn.addEventListener("click", () => {
+    searchInput.value = "";
+    state.searchQuery = "";
+    clearSearchBtn.classList.remove("show");
+    
+    filterPills.forEach((p) => {
+      const isAll = p.dataset.category === "all";
+      p.classList.toggle("active", isAll);
+      p.setAttribute("aria-selected", isAll ? "true" : "false");
+    });
+    state.currentCategory = "all";
+
+    // Reset sort dropdown
+    sortDropdownItems.forEach((i) => {
+      const isFeatured = i.dataset.value === "featured";
+      i.classList.toggle("active", isFeatured);
+      i.setAttribute("aria-selected", isFeatured ? "true" : "false");
+    });
+    if (sortCurrentText) sortCurrentText.textContent = "Featured Curated";
+    state.currentSort = "featured";
+
+    applyFilters();
   });
-  state.currentCategory = "all";
-  if (sortSelect) sortSelect.value = "featured";
-  state.currentSort = "featured";
-  applyFilters();
-});
+}
 
 // Layout Switcher
 masonryViewBtn.addEventListener("click", () => {
