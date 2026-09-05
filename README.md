@@ -56,7 +56,7 @@ CodeAlpha-Internship/
 | Serial / Task # | Project Name | Directory | Live Demo | Tech Stack | Status |
 | :---: | :--- | :--- | :---: | :---: | :---: |
 | **Task 01** | **Image Gallery** | [`Task-01_CodeAlpha_ImageGallery/`](./Task-01_CodeAlpha_ImageGallery/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-01_CodeAlpha_ImageGallery/) | HTML5, CSS3, JavaScript | ✅ **Completed** |
-| **Task 02** | **Interactive Calculator** | [`Task-02_CodeAlpha_Calculator/`](./Task-02_CodeAlpha_Calculator/) | *TBD* | HTML5, CSS3, JavaScript | ⏳ *Pending* |
+| **Task 02** | **Interactive Calculator** | [`Task-02_CodeAlpha_Calculator/`](./Task-02_CodeAlpha_Calculator/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-02_CodeAlpha_Calculator/) | HTML5, CSS3, JavaScript | ✅ **Completed** |
 | **Task 03** | **Personal Portfolio Website** | [`Task-03_CodeAlpha_PortfolioSite/`](./Task-03_CodeAlpha_PortfolioSite/) | *TBD* | HTML5, CSS3, JavaScript | ⏳ *Pending* |
 | **Task 04** | **JavaScript Music Player** | [`Task-04_CodeAlpha_MusicPlayer/`](./Task-04_CodeAlpha_MusicPlayer/) | *TBD* | HTML5, CSS3, Audio API | ⏳ *Pending* |
 
@@ -76,11 +76,15 @@ CodeAlpha-Internship/
 - [x] Hover effects, image captions, and zoom preview (<kbd>Z</kbd>).
 
 ### 🧮 Task 02: Build a Calculator
-- [ ] Complete arithmetic operations (`+`, `-`, `×`, `÷`, `%`).
-- [ ] Modern UI (Glassmorphism / Dark Mode theme).
-- [ ] Real-time input handling and formatted result display.
-- [ ] Clear (`C`), All Clear (`AC`), and Backspace (`DEL`) functionality.
-- [ ] Full keyboard input support.
+- [x] Complete arithmetic operations (`+`, `−`, `×`, `÷`, `%`, `±`, `.`).
+- [x] Desktop-grade light aesthetic with tactile 3D keypress animations.
+- [x] Multi-line real-time expression input & comma-formatted result display.
+- [x] All Clear (`AC`), single character Backspace (`DEL`), and memory (`MC`, `MR`, `M+`, `M-`).
+- [x] Full physical keyboard support with visual key-press highlights.
+- [x] 🔬 Scientific mode toggle ($\sqrt{x}$, $x^2$, $x^y$, $\sin$, $\cos$, $\tan$, $\ln$, $\log$, $x!$, $|x|$, $\pi$, $e$).
+- [x] 📜 Calculation history drawer with persistent `localStorage` & reload capabilities.
+- [x] 🔊 Web Audio API haptic mechanical click sound feedback (with mute toggle).
+- [x] 📋 One-click clipboard copy with animated toast notification alerts.
 
 ### 💼 Task 03: Personal Portfolio Site
 - [ ] Clean and responsive multi-section layout (Hero, About, Skills, Projects, Contact).

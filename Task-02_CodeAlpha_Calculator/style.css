@@ -1,0 +1,742 @@
+/* ==========================================================================
+   AeroCalc Pro — Modern Precision Calculator Design System
+   Human-Crafted Desktop Aesthetic (CodeAlpha Internship Task 02)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens (CSS Variables)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette (Clean Slate & Tactile White) */
+  --bg-app: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-screen: #F8FAFC;
+  --bg-subtle: #F1F5F9;
+
+  /* Typography Colors */
+  --text-main: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --text-dim: #94A3B8;
+  --text-inverse: #FFFFFF;
+
+  /* Accent Colors */
+  --accent-primary: #4F46E5;       /* Royal Indigo */
+  --accent-primary-hover: #4338CA;
+  --accent-primary-active: #3730A3;
+  --accent-primary-light: #EEF2FF;
+  --accent-primary-border: #C7D2FE;
+
+  --accent-rose: #E11D48;
+  --accent-rose-light: #FFF1F2;
+  --accent-amber: #D97706;
+  --accent-emerald: #0D9488;
+
+  /* Key Button Colors */
+  --key-num-bg: #FFFFFF;
+  --key-num-text: #0F172A;
+  --key-num-shadow: #CBD5E1;
+
+  --key-op-bg: #EEF2FF;
+  --key-op-text: #4F46E5;
+  --key-op-shadow: #C7D2FE;
+
+  --key-clear-bg: #FFF1F2;
+  --key-clear-text: #E11D48;
+  --key-clear-shadow: #FECDD3;
+
+  --key-sci-bg: #F1F5F9;
+  --key-sci-text: #334155;
+  --key-sci-shadow: #CBD5E1;
+
+  /* Borders & Shadows */
+  --border-card: #E2E8F0;
+  --border-subtle: #F1F5F9;
+
+  --shadow-card: 0 25px 50px -12px rgba(15, 23, 42, 0.14), 0 0 0 1px #E2E8F0;
+  --shadow-drawer: -10px 0 30px rgba(15, 23, 42, 0.1);
+  --shadow-key: 0 3px 0 var(--key-num-shadow), 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+  --shadow-key-pressed: 0 1px 0 var(--key-num-shadow), 0 1px 2px rgba(15, 23, 42, 0.05);
+
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Layout Setup
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Main App Layout & Calculator Card
+   -------------------------------------------------------------------------- */
+.app-layout {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.calculator-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: max-width var(--transition-smooth);
+}
+
+.calculator-card.scientific-active {
+  max-width: 580px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Window Header Topbar
+   -------------------------------------------------------------------------- */
+.calc-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.app-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon-tool-btn {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 1.125rem;
+  transition: all var(--transition-fast);
+}
+
+.icon-tool-btn:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+}
+
+.icon-tool-btn.active {
+  color: var(--accent-primary);
+}
+
+.history-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 15px;
+  height: 15px;
+  padding: 0 4px;
+  border-radius: var(--radius-full);
+  background-color: var(--accent-primary);
+  color: var(--text-inverse);
+  font-size: 0.625rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   5. Calculator Display Screen
+   -------------------------------------------------------------------------- */
+.calc-screen {
+  background-color: var(--bg-screen);
+  border-bottom: 1px solid var(--border-card);
+  padding: 16px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.screen-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 20px;
+}
+
+.calc-mode-tag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent-primary);
+  background-color: var(--accent-primary-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.memory-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-emerald);
+}
+
+.copy-display-btn {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.copy-display-btn:hover {
+  color: var(--accent-primary);
+  background-color: var(--bg-card);
+}
+
+.expression-line {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  min-height: 24px;
+  text-align: right;
+  word-break: break-all;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.expression-line::-webkit-scrollbar {
+  display: none;
+}
+
+.result-line-wrapper {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.result-line-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.main-result {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-align: right;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  word-break: keep-all;
+  white-space: nowrap;
+  transition: font-size var(--transition-fast);
+}
+
+/* --------------------------------------------------------------------------
+   6. Mode Switcher & Memory Bar
+   -------------------------------------------------------------------------- */
+.mode-memory-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+  gap: 12px;
+}
+
+.mode-toggle-group {
+  display: flex;
+  background-color: var(--bg-subtle);
+  padding: 2px;
+  border-radius: var(--radius-md);
+  gap: 2px;
+}
+
+.mode-btn {
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.mode-btn:hover {
+  color: var(--text-main);
+}
+
+.mode-btn.active {
+  background-color: var(--bg-card);
+  color: var(--accent-primary);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.memory-group {
+  display: flex;
+  gap: 4px;
+}
+
+.mem-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.mem-btn:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   7. Keypad Layout & Tactile Keycaps
+   -------------------------------------------------------------------------- */
+.calc-keypad-wrapper {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  background-color: var(--bg-card);
+}
+
+/* Scientific Keypad Drawer */
+.scientific-keypad {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 170px;
+  animation: fadeIn 0.2s ease;
+}
+
+.calculator-card.scientific-active .scientific-keypad {
+  display: grid;
+}
+
+/* Standard Keypad Grid */
+.standard-keypad {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Base Key Styling */
+.calc-key {
+  height: 52px;
+  border-radius: var(--radius-md);
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-card);
+  background-color: var(--key-num-bg);
+  color: var(--key-num-text);
+  box-shadow: var(--shadow-key);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.calc-key:hover {
+  background-color: #FAFAFA;
+}
+
+.calc-key:active,
+.calc-key.key-pressed {
+  transform: translateY(2px);
+  box-shadow: var(--shadow-key-pressed);
+}
+
+/* Key Varieties */
+.calc-key.key-num {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.calc-key.key-operator {
+  background-color: var(--key-op-bg);
+  color: var(--key-op-text);
+  border-color: var(--accent-primary-border);
+  box-shadow: 0 3px 0 var(--key-op-shadow), 0 4px 6px rgba(79, 70, 229, 0.05);
+  font-size: 1.375rem;
+}
+
+.calc-key.key-operator:hover {
+  background-color: #E0E7FF;
+}
+
+.calc-key.key-operator:active,
+.calc-key.key-operator.key-pressed {
+  box-shadow: 0 1px 0 var(--key-op-shadow);
+}
+
+.calc-key.key-clear {
+  background-color: var(--key-clear-bg);
+  color: var(--key-clear-text);
+  border-color: var(--key-clear-shadow);
+  box-shadow: 0 3px 0 var(--key-clear-shadow);
+  font-weight: 700;
+}
+
+.calc-key.key-clear:hover {
+  background-color: #FFE4E6;
+}
+
+.calc-key.key-clear:active,
+.calc-key.key-clear.key-pressed {
+  box-shadow: 0 1px 0 var(--key-clear-shadow);
+}
+
+.calc-key.key-del {
+  color: var(--accent-amber);
+  background-color: #FFFBEB;
+  border-color: #FDE68A;
+  box-shadow: 0 3px 0 #FCD34D;
+}
+
+.calc-key.key-del:hover {
+  background-color: #FEF3C7;
+}
+
+.calc-key.key-del:active,
+.calc-key.key-del.key-pressed {
+  box-shadow: 0 1px 0 #FCD34D;
+}
+
+.calc-key.key-equal {
+  background: linear-gradient(180deg, var(--accent-primary) 0%, var(--accent-primary-hover) 100%);
+  color: var(--text-inverse);
+  border-color: var(--accent-primary-active);
+  box-shadow: 0 3px 0 var(--accent-primary-active), 0 6px 12px rgba(79, 70, 229, 0.25);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.calc-key.key-equal:hover {
+  background: linear-gradient(180deg, #5B52F2 0%, var(--accent-primary) 100%);
+}
+
+.calc-key.key-equal:active,
+.calc-key.key-equal.key-pressed {
+  box-shadow: 0 1px 0 var(--accent-primary-active);
+}
+
+.calc-key.key-sci {
+  background-color: var(--key-sci-bg);
+  color: var(--key-sci-text);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.calc-key.key-sci:hover {
+  background-color: #E2E8F0;
+}
+
+/* --------------------------------------------------------------------------
+   8. Footer Helper Bar
+   -------------------------------------------------------------------------- */
+.calc-footer {
+  padding: 10px 16px;
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+kbd {
+  font-family: var(--font-mono);
+  background-color: var(--bg-subtle);
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   9. Calculation History Drawer
+   -------------------------------------------------------------------------- */
+.history-drawer {
+  width: 320px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-card);
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+
+.history-drawer.closed {
+  display: none;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.history-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.close-history-btn {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.close-history-btn:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+}
+
+.history-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  padding: 12px 14px;
+  background-color: var(--bg-screen);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all var(--transition-fast);
+}
+
+.history-item:hover {
+  background-color: var(--accent-primary-light);
+  border-color: var(--accent-primary-border);
+  transform: translateX(-2px);
+}
+
+.history-item-eq {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-align: right;
+  word-break: break-all;
+}
+
+.history-item-res {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-align: right;
+}
+
+.history-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  color: var(--text-muted);
+  text-align: center;
+  gap: 8px;
+}
+
+.history-empty i {
+  font-size: 2.5rem;
+  color: var(--text-dim);
+}
+
+.history-footer {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: center;
+}
+
+.clear-history-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent-rose);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.clear-history-btn:hover {
+  background-color: var(--accent-rose-light);
+}
+
+/* --------------------------------------------------------------------------
+   10. Toast Notification System
+   -------------------------------------------------------------------------- */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  background-color: var(--text-main);
+  color: var(--text-inverse);
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: toastSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+             toastSlideOut 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards 2.5s;
+}
+
+@keyframes toastSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toastSlideOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(12px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* --------------------------------------------------------------------------
+   11. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 820px) {
+  .app-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .history-drawer {
+    width: 100%;
+    max-width: 420px;
+  }
+  .calculator-card.scientific-active + .history-drawer {
+    max-width: 580px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 12px 8px;
+  }
+  .calc-key {
+    height: 48px;
+    font-size: 1.0625rem;
+  }
+  .main-result {
+    font-size: 2rem;
+  }
+  .scientific-keypad {
+    width: 130px;
+  }
+}

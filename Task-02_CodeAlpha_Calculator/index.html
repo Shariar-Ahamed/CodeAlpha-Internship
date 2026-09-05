@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AeroCalc — Modern Precision Calculator | CodeAlpha</title>
+  <meta name="description" content="A human-crafted precision web calculator featuring standard & scientific modes, calculation history, full keyboard support, and tactile haptic audio feedback.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== MAIN CALCULATOR APP CONTAINER ==================== -->
+  <div class="app-layout">
+    
+    <main class="calculator-card" id="calculatorCard" role="region" aria-label="Calculator">
+      
+      <!-- Top Window Header Bar -->
+      <header class="calc-topbar">
+        <div class="app-title">
+          <i class="ri-calculator-line"></i>
+          <span>AeroCalc Pro</span>
+        </div>
+
+        <div class="topbar-actions">
+          <!-- Sound Toggle Button -->
+          <button class="icon-tool-btn active" id="soundToggleBtn" title="Toggle Button Click Sound" aria-label="Toggle sound feedback">
+            <i class="ri-volume-up-line" id="soundIcon"></i>
+          </button>
+
+          <!-- History Toggle Button -->
+          <button class="icon-tool-btn" id="historyToggleBtn" title="Calculation History (H)" aria-label="Toggle history panel">
+            <i class="ri-history-line"></i>
+            <span class="history-badge" id="historyBadge">0</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Calculator Display Screen -->
+      <section class="calc-screen">
+        <!-- Status Indicator Bar -->
+        <div class="screen-status-bar">
+          <span class="calc-mode-tag" id="currentModeTag">STANDARD</span>
+          <div class="status-right">
+            <span class="memory-tag" id="memoryTag" style="display: none;">[M]</span>
+            <button class="copy-display-btn" id="copyResultBtn" title="Copy Result to Clipboard" aria-label="Copy result">
+              <i class="ri-file-copy-line"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Expression / Formula Line -->
+        <div class="expression-line" id="expressionDisplay" aria-live="polite"></div>
+
+        <!-- Main Numeric Result Display -->
+        <div class="result-line-wrapper">
+          <div class="main-result" id="mainDisplay" aria-live="polite">0</div>
+        </div>
+      </section>
+
+      <!-- Mode Switcher & Memory Bar -->
+      <nav class="mode-memory-bar">
+        <div class="mode-toggle-group">
+          <button class="mode-btn active" id="standardModeBtn">Standard</button>
+          <button class="mode-btn" id="scientificModeBtn">Scientific</button>
+        </div>
+
+        <div class="memory-group">
+          <button class="mem-btn" data-action="mc" title="Memory Clear">MC</button>
+          <button class="mem-btn" data-action="mr" title="Memory Recall">MR</button>
+          <button class="mem-btn" data-action="m-plus" title="Memory Add">M+</button>
+          <button class="mem-btn" data-action="m-minus" title="Memory Subtract">M−</button>
+        </div>
+      </nav>
+
+      <!-- Calculator Keypad Container -->
+      <div class="calc-keypad-wrapper">
+        
+        <!-- Scientific Keys Drawer (Collapsible) -->
+        <div class="scientific-keypad" id="scientificKeypad">
+          <button class="calc-key key-sci" data-action="sin" data-key="s">sin</button>
+          <button class="calc-key key-sci" data-action="cos" data-key="c">cos</button>
+          <button class="calc-key key-sci" data-action="tan" data-key="t">tan</button>
+          <button class="calc-key key-sci" data-action="ln">ln</button>
+          <button class="calc-key key-sci" data-action="log">log</button>
+
+          <button class="calc-key key-sci" data-action="sqrt" data-key="r">&radic;x</button>
+          <button class="calc-key key-sci" data-action="sqr">x&sup2;</button>
+          <button class="calc-key key-sci" data-action="power" data-key="^">xʸ</button>
+          <button class="calc-key key-sci" data-action="pi">&pi;</button>
+          <button class="calc-key key-sci" data-action="e">e</button>
+
+          <button class="calc-key key-sci" data-action="open-paren" data-key="(">(</button>
+          <button class="calc-key key-sci" data-action="close-paren" data-key=")">)</button>
+          <button class="calc-key key-sci" data-action="fact">x!</button>
+          <button class="calc-key key-sci" data-action="abs">|x|</button>
+          <button class="calc-key key-sci" data-action="inv">1/x</button>
+        </div>
+
+        <!-- Primary Standard Keypad Grid -->
+        <div class="standard-keypad" id="standardKeypad">
+          <!-- Row 1: Clear, Backspace, Modulo, Division -->
+          <button class="calc-key key-special key-clear" data-action="clear" data-key="Escape">AC</button>
+          <button class="calc-key key-special key-del" data-action="delete" data-key="Backspace"><i class="ri-delete-back-2-line"></i></button>
+          <button class="calc-key key-operator" data-action="percent" data-key="%">%</button>
+          <button class="calc-key key-operator" data-action="operator" data-val="/" data-key="/">&divide;</button>
+
+          <!-- Row 2: 7, 8, 9, Multiplication -->
+          <button class="calc-key key-num" data-action="num" data-val="7" data-key="7">7</button>
+          <button class="calc-key key-num" data-action="num" data-val="8" data-key="8">8</button>
+          <button class="calc-key key-num" data-action="num" data-val="9" data-key="9">9</button>
+          <button class="calc-key key-operator" data-action="operator" data-val="*" data-key="*">&times;</button>
+
+          <!-- Row 3: 4, 5, 6, Subtraction -->
+          <button class="calc-key key-num" data-action="num" data-val="4" data-key="4">4</button>
+          <button class="calc-key key-num" data-action="num" data-val="5" data-key="5">5</button>
+          <button class="calc-key key-num" data-action="num" data-val="6" data-key="6">6</button>
+          <button class="calc-key key-operator" data-action="operator" data-val="-" data-key="-">&minus;</button>
+
+          <!-- Row 4: 1, 2, 3, Addition -->
+          <button class="calc-key key-num" data-action="num" data-val="1" data-key="1">1</button>
+          <button class="calc-key key-num" data-action="num" data-val="2" data-key="2">2</button>
+          <button class="calc-key key-num" data-action="num" data-val="3" data-key="3">3</button>
+          <button class="calc-key key-operator" data-action="operator" data-val="+" data-key="+">+</button>
+
+          <!-- Row 5: Negate, 0, Decimal, Equal -->
+          <button class="calc-key key-special" data-action="negate" data-key="±">&plusmn;</button>
+          <button class="calc-key key-num" data-action="num" data-val="0" data-key="0">0</button>
+          <button class="calc-key key-num" data-action="decimal" data-val="." data-key=".">.</button>
+          <button class="calc-key key-equal" data-action="calculate" data-key="Enter">=</button>
+        </div>
+
+      </div>
+
+      <!-- Quick Keyboard Helper Footer -->
+      <footer class="calc-footer">
+        <span><i class="ri-keyboard-line"></i> Full keyboard enabled &bull; <kbd>Esc</kbd> Clear &bull; <kbd>Enter</kbd> Equal</span>
+      </footer>
+
+    </main>
+
+    <!-- ==================== HISTORY SIDEBAR / DRAWER ==================== -->
+    <aside class="history-drawer" id="historyDrawer" aria-label="Calculation History">
+      <div class="history-header">
+        <div class="history-title-wrap">
+          <i class="ri-history-line"></i>
+          <h3>Calculation History</h3>
+        </div>
+        <button class="close-history-btn" id="closeHistoryBtn" aria-label="Close history">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+
+      <div class="history-list" id="historyList">
+        <!-- History items dynamically inserted here -->
+      </div>
+
+      <div class="history-footer">
+        <button class="clear-history-btn" id="clearHistoryBtn">
+          <i class="ri-delete-bin-7-line"></i> Clear History
+        </button>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+</body>
+</html>
