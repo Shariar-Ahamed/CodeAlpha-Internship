@@ -46,65 +46,73 @@
     <div class="container">
       <div class="controls-wrapper">
         
-        <!-- Search Input -->
-        <div class="search-box">
-          <i class="ri-search-2-line search-icon"></i>
-          <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="Search by title, location, tag or photographer..." 
-            autocomplete="off"
-            aria-label="Search gallery"
-          >
-          <button class="clear-search-btn" id="clearSearchBtn" aria-label="Clear search">
-            <i class="ri-close-line"></i>
-          </button>
+        <!-- Top Controls Bar: Search + Sort & Layout -->
+        <div class="controls-top-bar">
+          <!-- Search Input -->
+          <div class="search-box">
+            <i class="ri-search-2-line search-icon"></i>
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Search photographs by title, location, tag, photographer..." 
+              autocomplete="off"
+              aria-label="Search gallery"
+            >
+            <button class="clear-search-btn" id="clearSearchBtn" aria-label="Clear search">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+
+          <!-- Secondary Actions: Sort + View Toggle -->
+          <div class="controls-actions">
+            <!-- Sort Dropdown -->
+            <div class="sort-wrapper">
+              <span class="sort-label"><i class="ri-arrow-up-down-line"></i> Sort:</span>
+              <select id="sortSelect" class="sort-select" aria-label="Sort gallery photographs">
+                <option value="featured">Featured Curated</option>
+                <option value="likes-desc">Most Liked &bull; Popular</option>
+                <option value="title-asc">Title &bull; A &rarr; Z</option>
+                <option value="title-desc">Title &bull; Z &rarr; A</option>
+              </select>
+            </div>
+
+            <!-- Layout View Toggle -->
+            <div class="layout-toggle" aria-label="Grid layout toggle">
+              <button class="view-btn" id="masonryViewBtn" title="Masonry Layout" aria-label="Masonry layout">
+                <i class="ri-dashboard-line"></i>
+              </button>
+              <button class="view-btn active" id="balancedViewBtn" title="Balanced Grid Layout" aria-label="Balanced grid layout">
+                <i class="ri-grid-fill"></i>
+              </button>
+            </div>
+          </div>
         </div>
 
-        <!-- Category Filters -->
-        <div class="filter-group" role="tablist" aria-label="Gallery Categories">
-          <button class="filter-pill active" data-category="all" role="tab" aria-selected="true">
-            <i class="ri-apps-2-line"></i> All Works
-          </button>
-          <button class="filter-pill" data-category="nature" role="tab" aria-selected="false">
-            <i class="ri-leaf-line"></i> Nature & Landscapes
-          </button>
-          <button class="filter-pill" data-category="architecture" role="tab" aria-selected="false">
-            <i class="ri-building-4-line"></i> Architecture
-          </button>
-          <button class="filter-pill" data-category="portraits" role="tab" aria-selected="false">
-            <i class="ri-user-smile-line"></i> Portraits
-          </button>
-          <button class="filter-pill" data-category="street" role="tab" aria-selected="false">
-            <i class="ri-road-map-line"></i> Street & Travel
-          </button>
-          <button class="filter-pill" data-category="minimalist" role="tab" aria-selected="false">
-            <i class="ri-compasses-2-line"></i> Minimalist
-          </button>
-          <button class="filter-pill fav-filter-pill" data-category="favorites" role="tab" aria-selected="false">
-            <i class="ri-heart-3-line"></i> Saved (<span id="favCount">0</span>)
-          </button>
-        </div>
-
-        <!-- Sort Dropdown -->
-        <div class="sort-wrapper">
-          <label for="sortSelect" class="sort-label"><i class="ri-arrow-up-down-line"></i> Sort:</label>
-          <select id="sortSelect" class="sort-select" aria-label="Sort gallery photographs">
-            <option value="featured">Featured Curated</option>
-            <option value="likes-desc">Most Liked &bull; Popular</option>
-            <option value="title-asc">Title &bull; A &rarr; Z</option>
-            <option value="title-desc">Title &bull; Z &rarr; A</option>
-          </select>
-        </div>
-
-        <!-- Layout View Toggle -->
-        <div class="layout-toggle" aria-label="Grid layout toggle">
-          <button class="view-btn" id="masonryViewBtn" title="Masonry Layout" aria-label="Masonry layout">
-            <i class="ri-dashboard-line"></i>
-          </button>
-          <button class="view-btn active" id="balancedViewBtn" title="Balanced Grid Layout" aria-label="Balanced grid layout">
-            <i class="ri-grid-fill"></i>
-          </button>
+        <!-- Bottom Controls Bar: Category Filter Pills -->
+        <div class="controls-bottom-bar">
+          <div class="filter-group" role="tablist" aria-label="Gallery Categories">
+            <button class="filter-pill active" data-category="all" role="tab" aria-selected="true">
+              <i class="ri-apps-2-line"></i> All Works
+            </button>
+            <button class="filter-pill" data-category="nature" role="tab" aria-selected="false">
+              <i class="ri-leaf-line"></i> Nature & Landscapes
+            </button>
+            <button class="filter-pill" data-category="architecture" role="tab" aria-selected="false">
+              <i class="ri-building-4-line"></i> Architecture
+            </button>
+            <button class="filter-pill" data-category="portraits" role="tab" aria-selected="false">
+              <i class="ri-user-smile-line"></i> Portraits
+            </button>
+            <button class="filter-pill" data-category="street" role="tab" aria-selected="false">
+              <i class="ri-road-map-line"></i> Street & Travel
+            </button>
+            <button class="filter-pill" data-category="minimalist" role="tab" aria-selected="false">
+              <i class="ri-compasses-2-line"></i> Minimalist
+            </button>
+            <button class="filter-pill fav-filter-pill" data-category="favorites" role="tab" aria-selected="false">
+              <i class="ri-heart-3-line"></i> Saved (<span id="favCount">0</span>)
+            </button>
+          </div>
         </div>
 
       </div>
