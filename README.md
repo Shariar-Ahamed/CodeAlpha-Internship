@@ -53,23 +53,27 @@ CodeAlpha-Internship/
 
 ## 📱 Tasks & Projects Overview
 
-| Serial / Task # | Project Name | Directory | Tech Stack | Status |
-| :---: | :--- | :--- | :---: | :---: |
-| **Task 01** | **Image Gallery** | [`Task-01_CodeAlpha_ImageGallery/`](./Task-01_CodeAlpha_ImageGallery/) | HTML5, CSS3, JavaScript | ⏳ *Pending / In Progress* |
-| **Task 02** | **Interactive Calculator** | [`Task-02_CodeAlpha_Calculator/`](./Task-02_CodeAlpha_Calculator/) | HTML5, CSS3, JavaScript | ⏳ *Pending / In Progress* |
-| **Task 03** | **Personal Portfolio Website** | [`Task-03_CodeAlpha_PortfolioSite/`](./Task-03_CodeAlpha_PortfolioSite/) | HTML5, CSS3, JavaScript | ⏳ *Pending / In Progress* |
-| **Task 04** | **JavaScript Music Player** | [`Task-04_CodeAlpha_MusicPlayer/`](./Task-04_CodeAlpha_MusicPlayer/) | HTML5, CSS3, Audio API | ⏳ *Pending / In Progress* |
+| Serial / Task # | Project Name | Directory | Live Demo | Tech Stack | Status |
+| :---: | :--- | :--- | :---: | :---: | :---: |
+| **Task 01** | **Image Gallery** | [`Task-01_CodeAlpha_ImageGallery/`](./Task-01_CodeAlpha_ImageGallery/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-01_CodeAlpha_ImageGallery/) | HTML5, CSS3, JavaScript | ✅ **Completed** |
+| **Task 02** | **Interactive Calculator** | [`Task-02_CodeAlpha_Calculator/`](./Task-02_CodeAlpha_Calculator/) | *TBD* | HTML5, CSS3, JavaScript | ⏳ *Pending* |
+| **Task 03** | **Personal Portfolio Website** | [`Task-03_CodeAlpha_PortfolioSite/`](./Task-03_CodeAlpha_PortfolioSite/) | *TBD* | HTML5, CSS3, JavaScript | ⏳ *Pending* |
+| **Task 04** | **JavaScript Music Player** | [`Task-04_CodeAlpha_MusicPlayer/`](./Task-04_CodeAlpha_MusicPlayer/) | *TBD* | HTML5, CSS3, Audio API | ⏳ *Pending* |
 
 ---
 
 ## 🎯 Task Details & Requirements
 
 ### 🖼️ Task 01: Image Gallery
-- [ ] Responsive grid layout with CSS Flexbox & Grid.
-- [ ] Lightbox overlay with full-screen view.
-- [ ] Navigation controls (Previous / Next buttons and keyboard arrow support).
-- [ ] Category / Tag filtering with smooth transition animations.
-- [ ] Hover effects, image captions, and zoom preview.
+- [x] Responsive grid layout with CSS Flexbox, Grid, & Masonry view toggle.
+- [x] Lightbox overlay with full-screen view & background blur.
+- [x] Navigation controls (Previous / Next buttons and keyboard arrow support).
+- [x] Category / Tag filtering (*Nature, Architecture, Portraits, Street, Minimalist*).
+- [x] ❤️ Saved / Favorites collection with persistent `localStorage`.
+- [x] 🔃 Smart sorting selector (Featured, Popular / Most Liked, Alphabetical).
+- [x] 📷 EXIF camera metadata specs (Camera, Lens, ISO, Exposure, Resolution).
+- [x] 🔗 Direct deep-linking URL share with toast notification feedback.
+- [x] Hover effects, image captions, and zoom preview (<kbd>Z</kbd>).
 
 ### 🧮 Task 02: Build a Calculator
 - [ ] Complete arithmetic operations (`+`, `-`, `×`, `÷`, `%`).
