@@ -1,7 +1,8 @@
 # 💼 Shariar Ahamed Ripon — Personal Portfolio Website
 
 > **CodeAlpha Frontend Development Internship — Task 03**  
-> Official Live Portfolio: **[https://shariarahamed.me/](https://shariarahamed.me/)**
+> 🌐 GitHub Pages Live Gateway: **[https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-03_CodeAlpha_PortfolioSite/](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-03_CodeAlpha_PortfolioSite/)**  
+> 🚀 Official Production Portfolio: **[https://shariarahamed.me/](https://shariarahamed.me/)**
 
 ---
 
@@ -11,7 +12,8 @@
 - **Student ID:** `CA/DF1/269964`
 - **Domain:** Frontend Web Development
 - **Internship Duration:** September 10, 2026 – October 10, 2026
-- **Live Portfolio Domain:** [🌐 https://shariarahamed.me/](https://shariarahamed.me/)
+- **Live Gateway Link:** [🌐 GitHub Pages Preview](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-03_CodeAlpha_PortfolioSite/)
+- **Live Production Domain:** [🚀 https://shariarahamed.me/](https://shariarahamed.me/)
 - **GitHub Profile:** [github.com/Shariar-Ahamed](https://github.com/Shariar-Ahamed)
 
 ---
@@ -33,6 +35,9 @@ My primary production portfolio is hosted on my custom domain **[https://shariar
 ## 🔗 Task Redirection
 
 For the **CodeAlpha Internship (Task 03)** evaluation, this folder contains a dedicated fast-redirect gateway that seamlessly connects evaluators to the official live production domain:
+
+- **GitHub Pages Gateway:** [https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-03_CodeAlpha_PortfolioSite/](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-03_CodeAlpha_PortfolioSite/)
+- **Official Production Domain:** [https://shariarahamed.me/](https://shariarahamed.me/)
 
 ```plaintext
 Task-03_CodeAlpha_PortfolioSite/  ──▶  https://shariarahamed.me/
