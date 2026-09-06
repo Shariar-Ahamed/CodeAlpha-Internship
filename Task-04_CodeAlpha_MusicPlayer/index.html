@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuraMusic — Modern Web Music Player | CodeAlpha Task 04</title>
+  
+  <!-- Meta SEO -->
+  <meta name="description" content="AuraMusic is a modern, responsive web music player crafted with pure JavaScript, featuring live visualizer, playlist management, seekbar preview, and tactile controls.">
+  <meta name="author" content="Shariar Ahamed Ripon">
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Ambient Glow Canvas -->
+  <div class="ambient-background" id="ambientBg"></div>
+
+  <!-- Main Application Wrapper -->
+  <div class="app-container">
+
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+      <div class="brand-group">
+        <div class="brand-logo">
+          <i class="fa-solid fa-compact-disc brand-icon"></i>
+        </div>
+        <div>
+          <div class="brand-badge">
+            <span class="pulse-dot"></span>
+            CodeAlpha Internship • Task 04
+          </div>
+          <h1 class="brand-title">AuraMusic <span>Player</span></h1>
+        </div>
+      </div>
+
+      <div class="header-tools">
+        <!-- Sleep Timer Button -->
+        <div class="timer-dropdown-container">
+          <button class="tool-btn" id="sleepTimerBtn" title="Sleep Timer" aria-label="Sleep Timer">
+            <i class="fa-regular fa-clock"></i>
+            <span class="tool-label" id="timerBadge">Timer</span>
+          </button>
+          <div class="timer-menu" id="timerMenu">
+            <div class="timer-menu-header">Set Sleep Timer</div>
+            <button class="timer-opt" data-minutes="0">Off</button>
+            <button class="timer-opt" data-minutes="5">5 Minutes</button>
+            <button class="timer-opt" data-minutes="15">15 Minutes</button>
+            <button class="timer-opt" data-minutes="30">30 Minutes</button>
+            <button class="timer-opt" data-minutes="60">60 Minutes</button>
+          </div>
+        </div>
+
+        <!-- Playback Speed Button -->
+        <div class="speed-dropdown-container">
+          <button class="tool-btn" id="speedBtn" title="Playback Speed" aria-label="Playback Speed">
+            <span class="speed-text" id="speedBadge">1.0x</span>
+          </button>
+          <div class="speed-menu" id="speedMenu">
+            <div class="timer-menu-header">Playback Speed</div>
+            <button class="speed-opt" data-speed="0.75">0.75x</button>
+            <button class="speed-opt active" data-speed="1.0">1.0x (Normal)</button>
+            <button class="speed-opt" data-speed="1.25">1.25x</button>
+            <button class="speed-opt" data-speed="1.5">1.5x</button>
+            <button class="speed-opt" data-speed="2.0">2.0x</button>
+          </div>
+        </div>
+
+        <!-- Toggle Playlist on Mobile -->
+        <button class="tool-btn playlist-toggle-btn" id="playlistToggleBtn" title="Toggle Playlist" aria-label="Toggle Playlist">
+          <i class="fa-solid fa-list-ul"></i>
+          <span class="tool-label">Queue</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace Layout: Player Deck + Playlist Drawer -->
+    <main class="main-stage">
+
+      <!-- Left Column: Primary Player Deck -->
+      <section class="player-card" aria-label="Music Player Deck">
+        
+        <!-- Track Visual Stage (Album Art & Vinyl Disk) -->
+        <div class="album-stage">
+          <div class="vinyl-record" id="vinylRecord">
+            <div class="vinyl-grooves"></div>
+            <div class="vinyl-center">
+              <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=600&auto=format&fit=crop&q=80" alt="Album Cover" class="vinyl-art" id="albumArt">
+              <div class="vinyl-spindle"></div>
+            </div>
+          </div>
+
+          <!-- Dynamic Audio Frequency Visualizer Canvas -->
+          <div class="visualizer-wrapper">
+            <canvas id="visualizerCanvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Track Metadata & Info -->
+        <div class="track-details">
+          <div class="track-text">
+            <span class="track-genre-badge" id="trackGenre">Synthwave</span>
+            <h2 class="track-title" id="trackTitle">Midnight City Lights</h2>
+            <p class="track-artist" id="trackArtist">Aura Beats & Synth Collective</p>
+          </div>
+          
+          <div class="track-actions">
+            <button class="action-btn" id="likeBtn" title="Add to Favorites" aria-label="Add to Favorites">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+            <button class="action-btn" id="shareBtn" title="Share Track Link" aria-label="Share Track Link">
+              <i class="fa-solid fa-share-nodes"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Scrubber & Time Progress -->
+        <div class="progress-section">
+          <div class="progress-bar-container" id="progressBarContainer">
+            <div class="progress-buffered" id="progressBuffered"></div>
+            <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-handle" id="progressHandle"></div>
+            
+            <!-- Hover Time Preview Tooltip -->
+            <div class="progress-tooltip" id="progressTooltip">00:00</div>
+          </div>
+          
+          <div class="time-row">
+            <span class="time-label current-time" id="currentTime">00:00</span>
+            <span class="time-label duration-time" id="durationTime">00:00</span>
+          </div>
+        </div>
+
+        <!-- Main Playback Control Bar -->
+        <div class="controls-deck">
+          <!-- Shuffle Button -->
+          <button class="ctrl-btn sub-ctrl" id="shuffleBtn" title="Shuffle (S)" aria-label="Toggle Shuffle">
+            <i class="fa-solid fa-shuffle"></i>
+          </button>
+
+          <!-- Previous Track Button -->
+          <button class="ctrl-btn step-ctrl" id="prevBtn" title="Previous Track (P)" aria-label="Previous Track">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+
+          <!-- Play / Pause Primary Action Button -->
+          <button class="ctrl-btn play-pause-btn" id="playPauseBtn" title="Play / Pause (Space)" aria-label="Play or Pause">
+            <i class="fa-solid fa-play" id="playIcon"></i>
+          </button>
+
+          <!-- Next Track Button -->
+          <button class="ctrl-btn step-ctrl" id="nextBtn" title="Next Track (N)" aria-label="Next Track">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+
+          <!-- Repeat Mode Button (Off -> All -> One) -->
+          <button class="ctrl-btn sub-ctrl" id="repeatBtn" title="Repeat Mode (R)" aria-label="Toggle Repeat Mode">
+            <i class="fa-solid fa-repeat"></i>
+            <span class="repeat-one-badge" id="repeatOneBadge">1</span>
+          </button>
+        </div>
+
+        <!-- Bottom Deck: Volume & Utility Strip -->
+        <div class="player-bottom-strip">
+          <div class="volume-control-group">
+            <button class="vol-btn" id="muteBtn" title="Mute / Unmute (M)" aria-label="Mute / Unmute">
+              <i class="fa-solid fa-volume-high" id="volIcon"></i>
+            </button>
+            <div class="vol-slider-wrap">
+              <input type="range" min="0" max="100" value="80" class="vol-slider" id="volSlider" aria-label="Volume Slider">
+              <div class="vol-fill" id="volFill" style="width: 80%;"></div>
+            </div>
+            <span class="vol-percent" id="volPercent">80%</span>
+          </div>
+
+          <div class="keyboard-hints">
+            <span><kbd>Space</kbd> Play</span>
+            <span><kbd>←</kbd><kbd>→</kbd> Seek</span>
+            <span><kbd>M</kbd> Mute</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Right Column: Queue & Playlist Explorer -->
+      <aside class="playlist-sidebar" id="playlistSidebar" aria-label="Playlist & Queue">
+        
+        <!-- Playlist Header & Filter Tools -->
+        <div class="playlist-top">
+          <div class="playlist-header-row">
+            <div class="playlist-title-wrap">
+              <i class="fa-solid fa-music"></i>
+              <h3>Up Next / Library</h3>
+            </div>
+            <span class="queue-count-badge" id="queueCount">8 Tracks</span>
+          </div>
+
+          <!-- Search Input -->
+          <div class="playlist-search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="playlistSearchInput" placeholder="Search track, artist, genre..." aria-label="Search Playlist">
+            <button class="clear-search-btn" id="clearSearchBtn" aria-label="Clear Search">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Genre Filter Pills -->
+          <div class="genre-pill-group" id="genrePillGroup">
+            <button class="genre-pill active" data-genre="all">All</button>
+            <button class="genre-pill" data-genre="Lofi">Lofi</button>
+            <button class="genre-pill" data-genre="Synthwave">Synthwave</button>
+            <button class="genre-pill" data-genre="Chillhop">Chillhop</button>
+            <button class="genre-pill" data-genre="Acoustic">Acoustic</button>
+            <button class="genre-pill" data-genre="Ambient">Ambient</button>
+            <button class="genre-pill fav-genre-pill" data-genre="favorites">
+              <i class="fa-solid fa-heart"></i> Favorites
+            </button>
+          </div>
+        </div>
+
+        <!-- Scrollable Tracks List -->
+        <div class="playlist-track-list" id="playlistTrackList" role="list">
+          <!-- Dynamic Track Items rendered via JS -->
+        </div>
+
+        <!-- Empty Playlist State -->
+        <div class="playlist-empty-state" id="playlistEmptyState">
+          <i class="fa-solid fa-compact-disc empty-disc"></i>
+          <h4>No matching tracks</h4>
+          <p>Try searching with another keyword or reset category filter.</p>
+          <button class="reset-filter-btn" id="resetFilterBtn">Show All Tracks</button>
+        </div>
+
+      </aside>
+
+    </main>
+
+    <!-- Master Footer Info -->
+    <footer class="app-footer">
+      <div class="footer-left">
+        <span>Designed & Developed by <strong>Shariar Ahamed Ripon</strong> (ID: <code>CA/DF1/269964</code>)</span>
+      </div>
+      <div class="footer-right">
+        <span>CodeAlpha Frontend Development Internship • Month 1 Task 04</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="audioElement" preload="metadata"></audio>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

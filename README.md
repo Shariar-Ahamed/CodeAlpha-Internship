@@ -58,7 +58,7 @@ CodeAlpha-Internship/
 | **Task 01** | **Image Gallery** | [`Task-01_CodeAlpha_ImageGallery/`](./Task-01_CodeAlpha_ImageGallery/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-01_CodeAlpha_ImageGallery/) | HTML5, CSS3, JavaScript | ✅ **Completed** |
 | **Task 02** | **Interactive Calculator** | [`Task-02_CodeAlpha_Calculator/`](./Task-02_CodeAlpha_Calculator/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-02_CodeAlpha_Calculator/) | HTML5, CSS3, JavaScript | ✅ **Completed** |
 | **Task 03** | **Personal Portfolio Website** | [`Task-03_CodeAlpha_PortfolioSite/`](./Task-03_CodeAlpha_PortfolioSite/) | *TBD* | HTML5, CSS3, JavaScript | ⏳ *Pending* |
-| **Task 04** | **JavaScript Music Player** | [`Task-04_CodeAlpha_MusicPlayer/`](./Task-04_CodeAlpha_MusicPlayer/) | *TBD* | HTML5, CSS3, Audio API | ⏳ *Pending* |
+| **Task 04** | **JavaScript Music Player** | [`Task-04_CodeAlpha_MusicPlayer/`](./Task-04_CodeAlpha_MusicPlayer/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-04_CodeAlpha_MusicPlayer/) | HTML5, CSS3, Audio API | ✅ **Completed** |
 
 ---
 
@@ -94,11 +94,14 @@ CodeAlpha-Internship/
 - [ ] Ready for deployment on GitHub Pages or Netlify.
 
 ### 🎵 Task 04: Music Player using JavaScript
-- [ ] Audio controls (Play, Pause, Next, Previous, Repeat, Shuffle).
-- [ ] Dynamic song title, artist info, and rotating album art.
-- [ ] Interactive progress bar with seek/scrub capability.
-- [ ] Volume slider and mute toggle.
-- [ ] Interactive playlist drawer.
+- [x] Audio controls (Play, Pause, Next, Previous, Repeat, Shuffle, Speed Control).
+- [x] Dynamic song title, artist info, and rotating vinyl album art.
+- [x] Interactive progress bar with hover time preview and seek/scrub capability.
+- [x] Dynamic Canvas audio frequency spectrum visualizer.
+- [x] Volume slider, mute toggle, and dynamic speaker icons.
+- [x] Interactive playlist queue with real-time search & genre filter pills.
+- [x] Sleep timer (`5m`, `15m`, `30m`, `60m`) & ❤️ favorite tracks manager (`localStorage`).
+- [x] Full physical keyboard shortcuts support (<kbd>Space</kbd>, <kbd>←</kbd>/<kbd>→</kbd>, <kbd>↑</kbd>/<kbd>↓</kbd>, <kbd>M</kbd>, <kbd>N</kbd>, <kbd>P</kbd>, <kbd>S</kbd>, <kbd>R</kbd>, <kbd>L</kbd>).
 
 ---
 
