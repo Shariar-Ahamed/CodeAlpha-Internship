@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shariar Ahamed Ripon — Official Portfolio Gateway</title>
+  
+  <!-- SEO & Canonical Link -->
+  <meta name="description" content="Official Portfolio of Shariar Ahamed Ripon — Frontend & Full Stack Developer.">
+  <link rel="canonical" href="https://shariarahamed.me/">
+
+  <!-- Auto-Redirect Meta (3s) -->
+  <meta http-equiv="refresh" content="3;url=https://shariarahamed.me/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Dynamic Ambient Glow Blobs -->
+  <div class="ambient-glow"></div>
+  <div class="ambient-blob-1"></div>
+  <div class="ambient-blob-2"></div>
+
+  <!-- Gateway Main Card -->
+  <main class="gateway-container">
+    <div class="gateway-card">
+      
+      <!-- Top Decorative Bar & Verified Badge -->
+      <div class="card-top-bar">
+        <div class="internship-pill">
+          <span class="live-dot"></span>
+          <span>CodeAlpha Internship • Task 03</span>
+        </div>
+        <a href="https://github.com/Shariar-Ahamed" target="_blank" rel="noopener noreferrer" class="github-badge-btn" title="View GitHub Profile">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+
+      <!-- Animated Avatar & Countdown Ring -->
+      <div class="avatar-stage">
+        <div class="ring-wrapper">
+          <svg class="countdown-svg" viewBox="0 0 100 100">
+            <circle class="ring-bg" cx="50" cy="50" r="44"></circle>
+            <circle class="ring-progress" id="ringProgress" cx="50" cy="50" r="44"></circle>
+          </svg>
+          <div class="avatar-badge">
+            <span>SR</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header & Identity -->
+      <div class="identity-block">
+        <h1 class="developer-name">Shariar Ahamed Ripon</h1>
+        <p class="role-caption">Frontend & Full Stack Developer</p>
+      </div>
+
+      <!-- Live Domain Preview Widget -->
+      <div class="browser-widget">
+        <div class="widget-header">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="ssl-lock">
+            <i class="fa-solid fa-lock"></i>
+            <span>Secure Connection</span>
+          </div>
+        </div>
+        <div class="widget-url-bar">
+          <span class="url-protocol">https://</span>
+          <span class="url-domain">shariarahamed.me</span>
+          <span class="url-path">/</span>
+          <button class="copy-url-btn" id="copyUrlBtn" title="Copy Domain Link">
+            <i class="fa-regular fa-copy" id="copyIcon"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Feature Tags -->
+      <div class="feature-tags">
+        <span class="feat-tag"><i class="fa-solid fa-layer-group"></i> Production Projects</span>
+        <span class="feat-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> UI/UX Engineering</span>
+        <span class="feat-tag"><i class="fa-solid fa-bolt"></i> Interactive Demos</span>
+      </div>
+
+      <!-- Live Redirection Status -->
+      <div class="redirect-status-row">
+        <div class="spinner-dot"></div>
+        <span class="status-msg">Redirecting to official website in <strong id="countdownNum">3</strong>s</span>
+      </div>
+
+      <!-- Primary Action CTA -->
+      <a href="https://shariarahamed.me/" class="btn-launch-portfolio" id="launchBtn">
+        <span>Open Official Portfolio</span>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+
+      <!-- Verified Student Credentials Footer -->
+      <footer class="card-footer">
+        <div class="verified-tag">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>CodeAlpha Verified • Student ID: <code>CA/DF1/269964</code></span>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Gateway Script -->
+  <script src="script.js"></script>
+</body>
+</html>
