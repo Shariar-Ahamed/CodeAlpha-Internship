@@ -2,7 +2,9 @@
 
 > **CodeAlpha Frontend Development Internship**  
 > 🌐 GitHub Pages Live Gateway: **[https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_Portfolio/](https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_Portfolio/)**  
-> 🚀 Official Production Portfolio: **[https://shariarahamed.me/](https://shariarahamed.me/)**
+> 🚀 Official Production Portfolio: **[https://shariarahamed.me/](https://shariarahamed.me/)**  
+>  
+> 📌 **Implementation Note:** This task uses my existing production portfolio as the primary portfolio implementation. The GitHub Pages entry point serves as a dedicated evaluation gateway to the live production website.
 
 ---
 
@@ -32,9 +34,9 @@ My primary production portfolio is hosted on my custom domain **[https://shariar
 
 ---
 
-## 🔗 Portfolio Redirection
+## 🔗 Portfolio Redirection & Evaluation Gateway
 
-For the **CodeAlpha Internship** evaluation, this folder contains a dedicated fast-redirect gateway that seamlessly connects evaluators to the official live production domain:
+For the **CodeAlpha Internship** evaluation, this task uses my existing production portfolio as the primary portfolio implementation. The GitHub Pages entry point serves as a dedicated evaluation gateway that seamlessly connects evaluators to the live production website:
 
 - **GitHub Pages Gateway:** [https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_Portfolio/](https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_Portfolio/)
 - **Official Production Domain:** [https://shariarahamed.me/](https://shariarahamed.me/)
