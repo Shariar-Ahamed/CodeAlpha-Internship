@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="calcBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+
+  <!-- App Rounded Base -->
+  <rect width="64" height="64" rx="16" fill="url(#calcBg)"/>
+  
+  <!-- Modern Minimalist Calculator Grid -->
+  <!-- Screen Bar -->
+  <rect x="14" y="14" width="36" height="10" rx="3" fill="#FFFFFF" fill-opacity="0.25"/>
+  <rect x="36" y="17" width="10" height="4" rx="1" fill="#FFFFFF"/>
+
+  <!-- Keypad Dots / Buttons -->
+  <rect x="14" y="28" width="8" height="8" rx="2.5" fill="#FFFFFF"/>
+  <rect x="28" y="28" width="8" height="8" rx="2.5" fill="#FFFFFF"/>
+  <rect x="42" y="28" width="8" height="8" rx="2.5" fill="#FFFFFF" fill-opacity="0.8"/>
+
+  <rect x="14" y="40" width="8" height="8" rx="2.5" fill="#FFFFFF"/>
+  <rect x="28" y="40" width="8" height="8" rx="2.5" fill="#FFFFFF"/>
+  <rect x="42" y="40" width="8" height="8" rx="2.5" fill="#38BDF8"/>
+</svg>
