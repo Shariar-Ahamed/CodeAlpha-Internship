@@ -1,6 +1,6 @@
 /**
  * AuraMusic Player — Modern Web Audio Engine & Controller
- * CodeAlpha Frontend Development Internship • Task 04
+ * CodeAlpha Frontend Development Internship — Music Player
  * Author: Shariar Ahamed Ripon (CA/DF1/269964)
  */
 

@@ -1,6 +1,6 @@
 /**
  * Lumina Gallery — Interactive JavaScript Logic
- * CodeAlpha Frontend Development Internship — Task 01
+ * CodeAlpha Frontend Development Internship — Image Gallery
  * Author: Shariar Ahamed Ripon (Student ID: CA/DF1/269964)
  */
 

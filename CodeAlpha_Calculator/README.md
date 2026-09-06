@@ -1,4 +1,4 @@
-# 🧮 Task 02: AeroCalc Pro — Precision Interactive Calculator
+# 🧮 AeroCalc Pro — Precision Interactive Calculator
 
 A modern, desktop-grade web calculator built with vanilla HTML5, CSS3, and modern JavaScript as part of the **CodeAlpha Frontend Development Internship**.
 
@@ -6,8 +6,8 @@ A modern, desktop-grade web calculator built with vanilla HTML5, CSS3, and moder
 
 ## 🔗 Live Demo & Repository Links
 
-* **Live Demo Preview:** [https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-02_CodeAlpha_Calculator/](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-02_CodeAlpha_Calculator/)
-* **Task Repository:** [github.com/Shariar-Ahamed/CodeAlpha-Internship/tree/main/Task-02_CodeAlpha_Calculator](https://github.com/Shariar-Ahamed/CodeAlpha-Internship/tree/main/Task-02_CodeAlpha_Calculator)
+* **Live Demo Preview:** [https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_Calculator/](https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_Calculator/)
+* **Project Repository:** [github.com/Shariar-Ahamed/CodeAlpha-Internship/tree/main/CodeAlpha_Calculator](https://github.com/Shariar-Ahamed/CodeAlpha-Internship/tree/main/CodeAlpha_Calculator)
 
 ---
 
@@ -67,12 +67,12 @@ A modern, desktop-grade web calculator built with vanilla HTML5, CSS3, and moder
    ```bash
    git clone https://github.com/Shariar-Ahamed/CodeAlpha-Internship.git
    ```
-2. Open `Task-02_CodeAlpha_Calculator/index.html` directly in any web browser, or run a local server:
+2. Open `CodeAlpha_Calculator/index.html` directly in any web browser, or run a local server:
    ```bash
    # Using Python
    python -m http.server 3000
    ```
-3. Navigate to `http://localhost:3000/Task-02_CodeAlpha_Calculator/` in your browser.
+3. Navigate to `http://localhost:3000/CodeAlpha_Calculator/` in your browser.
 
 ---
 

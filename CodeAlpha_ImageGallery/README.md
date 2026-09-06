@@ -1,4 +1,4 @@
-# 🖼️ Task 01: Lumina Image Gallery
+# 🖼️ Lumina Image Gallery — CodeAlpha
 
 An editorial, responsive, and human-crafted photography showcase developed as part of the **CodeAlpha Frontend Development Internship**.
 
@@ -6,8 +6,8 @@ An editorial, responsive, and human-crafted photography showcase developed as pa
 
 ## 🔗 Live Demo & Repository Links
 
-* **Live Demo Preview:** [https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-01_CodeAlpha_ImageGallery/](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-01_CodeAlpha_ImageGallery/)
-* **Task Repository:** [github.com/Shariar-Ahamed/CodeAlpha-Internship/tree/main/Task-01_CodeAlpha_ImageGallery](https://github.com/Shariar-Ahamed/CodeAlpha-Internship/tree/main/Task-01_CodeAlpha_ImageGallery)
+* **Live Demo Preview:** [https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_ImageGallery/](https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_ImageGallery/)
+* **Project Repository:** [github.com/Shariar-Ahamed/CodeAlpha-Internship/tree/main/CodeAlpha_ImageGallery](https://github.com/Shariar-Ahamed/CodeAlpha-Internship/tree/main/CodeAlpha_ImageGallery)
 
 ---
 
@@ -76,12 +76,12 @@ An editorial, responsive, and human-crafted photography showcase developed as pa
    ```bash
    git clone https://github.com/Shariar-Ahamed/CodeAlpha-Internship.git
    ```
-2. Open `Task-01_CodeAlpha_ImageGallery/index.html` directly in any web browser, or run a local server:
+2. Open `CodeAlpha_ImageGallery/index.html` directly in any web browser, or run a local server:
    ```bash
    # Using Python
    python -m http.server 3000
    ```
-3. Navigate to `http://localhost:3000/Task-01_CodeAlpha_ImageGallery/` in your browser.
+3. Navigate to `http://localhost:3000/CodeAlpha_ImageGallery/` in your browser.
 
 ---
 

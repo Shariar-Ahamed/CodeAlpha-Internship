@@ -1,6 +1,6 @@
 # 🎵 AuraMusic — Modern Web Audio Player
 
-> **CodeAlpha Frontend Development Internship — Task 04**  
+> **CodeAlpha Frontend Development Internship**  
 > Developed with pure HTML5, modern CSS3, and Vanilla JavaScript (ES6+).
 
 ---
@@ -11,7 +11,7 @@
 - **Student ID:** `CA/DF1/269964`
 - **Domain:** Frontend Web Development
 - **Internship Duration:** September 10, 2026 – October 10, 2026
-- **Live Demo:** [🌐 AuraMusic Live Preview](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-04_CodeAlpha_MusicPlayer/)
+- **Live Demo:** [🌐 AuraMusic Live Preview](https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_MusicPlayer/)
 
 ---
 

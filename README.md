@@ -17,7 +17,7 @@ Welcome to the **CodeAlpha Frontend Development Internship** repository. This re
 
 ---
 
-## 📁 Repository Structure & Serial Order
+## 📁 Repository Structure & Projects
 
 ```plaintext
 CodeAlpha-Internship/
@@ -26,28 +26,28 @@ CodeAlpha-Internship/
 │   ├── Shariar Ahamed Ripon.pdf
 │   └── Frontend Development Tasks & Instructions — CodeAlpha M1.pdf
 │
-├── 📂 Task-01_CodeAlpha_ImageGallery/
+├── 📂 CodeAlpha_ImageGallery/
 │   ├── favicon.svg
 │   ├── index.html
 │   ├── style.css
 │   ├── script.js
 │   └── README.md
 │
-├── 📂 Task-02_CodeAlpha_Calculator/
+├── 📂 CodeAlpha_Calculator/
 │   ├── favicon.svg
 │   ├── index.html
 │   ├── style.css
 │   ├── script.js
 │   └── README.md
 │
-├── 📂 Task-03_CodeAlpha_PortfolioSite/
+├── 📂 CodeAlpha_Portfolio/
 │   ├── favicon.svg
 │   ├── index.html
 │   ├── style.css
 │   ├── script.js
 │   └── README.md
 │
-├── 📂 Task-04_CodeAlpha_MusicPlayer/
+├── 📂 CodeAlpha_MusicPlayer/
 │   ├── favicon.svg
 │   ├── index.html
 │   ├── style.css
@@ -60,20 +60,20 @@ CodeAlpha-Internship/
 
 ---
 
-## 📱 Tasks & Projects Overview
+## 📱 Projects Overview
 
-| Serial / Task # | Project Name | Directory | Live Demo / Preview | Tech Stack | Status |
+| # | Project Name | Directory | Live Demo / Preview | Tech Stack | Status |
 | :---: | :--- | :--- | :---: | :---: | :---: |
-| **Task 01** | **Image Gallery** | [`Task-01_CodeAlpha_ImageGallery/`](./Task-01_CodeAlpha_ImageGallery/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-01_CodeAlpha_ImageGallery/) | HTML5, CSS3, JavaScript | ✅ **Completed** |
-| **Task 02** | **Interactive Calculator** | [`Task-02_CodeAlpha_Calculator/`](./Task-02_CodeAlpha_Calculator/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-02_CodeAlpha_Calculator/) | HTML5, CSS3, JavaScript | ✅ **Completed** |
-| **Task 03** | **Personal Portfolio Gateway** | [`Task-03_CodeAlpha_PortfolioSite/`](./Task-03_CodeAlpha_PortfolioSite/) | [🌐 Live Gateway](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-03_CodeAlpha_PortfolioSite/) · [🔗 Official Site](https://shariarahamed.me/) | HTML5, CSS3, JavaScript | ✅ **Completed** |
-| **Task 04** | **JavaScript Music Player** | [`Task-04_CodeAlpha_MusicPlayer/`](./Task-04_CodeAlpha_MusicPlayer/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/Task-04_CodeAlpha_MusicPlayer/) | HTML5, CSS3, Web Audio API | ✅ **Completed** |
+| 01 | **CodeAlpha Image Gallery** | [`CodeAlpha_ImageGallery/`](./CodeAlpha_ImageGallery/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_ImageGallery/) | HTML5, CSS3, JavaScript | ✅ **Completed** |
+| 02 | **CodeAlpha Calculator** | [`CodeAlpha_Calculator/`](./CodeAlpha_Calculator/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_Calculator/) | HTML5, CSS3, JavaScript | ✅ **Completed** |
+| 03 | **CodeAlpha Portfolio Gateway** | [`CodeAlpha_Portfolio/`](./CodeAlpha_Portfolio/) | [🌐 Live Gateway](https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_Portfolio/) · [🔗 Official Site](https://shariarahamed.me/) | HTML5, CSS3, JavaScript | ✅ **Completed** |
+| 04 | **CodeAlpha Music Player** | [`CodeAlpha_MusicPlayer/`](./CodeAlpha_MusicPlayer/) | [🌐 Live Demo](https://shariar-ahamed.github.io/CodeAlpha-Internship/CodeAlpha_MusicPlayer/) | HTML5, CSS3, Web Audio API | ✅ **Completed** |
 
 ---
 
-## 🎯 Task Details & Requirements
+## 🎯 Project Details & Requirements
 
-### 🖼️ Task 01: Image Gallery
+### 🖼️ 01. CodeAlpha Image Gallery
 - [x] Responsive grid layout with CSS Flexbox, Grid, & Masonry view toggle.
 - [x] Lightbox overlay with full-screen view & background blur.
 - [x] Navigation controls (Previous / Next buttons and keyboard arrow support).
@@ -84,7 +84,7 @@ CodeAlpha-Internship/
 - [x] 🔗 Direct deep-linking URL share with toast notification feedback.
 - [x] Hover effects, image captions, and zoom preview (<kbd>Z</kbd>).
 
-### 🧮 Task 02: Build a Calculator
+### 🧮 02. CodeAlpha Calculator
 - [x] Complete arithmetic operations (`+`, `−`, `×`, `÷`, `%`, `±`, `.`).
 - [x] Desktop-grade light aesthetic with tactile 3D keypress animations.
 - [x] Multi-line real-time expression input & comma-formatted result display.
@@ -95,7 +95,7 @@ CodeAlpha-Internship/
 - [x] 🔊 Web Audio API haptic mechanical click sound feedback (with mute toggle).
 - [x] 📋 One-click clipboard copy with animated toast notification alerts.
 
-### 💼 Task 03: Personal Portfolio Site (Gateway to Live Production Domain)
+### 💼 03. CodeAlpha Portfolio (Gateway to Live Production Domain)
 - [x] Modern interactive gateway & redirection portal with countdown timer & sound effects.
 - [x] Direct connection to official live domain: [shariarahamed.me](https://shariarahamed.me/).
 - [x] Personal brand highlight: Full-Stack capabilities, skills, featured projects, contact links.
@@ -104,7 +104,7 @@ CodeAlpha-Internship/
 - [x] Custom SVG developer monogram favicon and mobile-first responsiveness.
 - [x] Keyboard shortcuts (<kbd>Enter</kbd> to launch immediately, <kbd>Space</kbd> to pause/resume countdown).
 
-### 🎵 Task 04: Music Player using JavaScript
+### 🎵 04. CodeAlpha Music Player
 - [x] Audio controls (Play, Pause, Next, Previous, Repeat, Shuffle, Speed Control).
 - [x] Dynamic song title, artist info, and rotating vinyl album art.
 - [x] Interactive progress bar with hover time preview and seek/scrub capability.

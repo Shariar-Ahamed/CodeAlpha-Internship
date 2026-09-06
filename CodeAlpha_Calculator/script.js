@@ -1,6 +1,6 @@
 /**
  * AeroCalc Pro — Advanced Precision Calculator Engine
- * CodeAlpha Frontend Development Internship — Task 02
+ * CodeAlpha Frontend Development Internship — Calculator
  * Author: Shariar Ahamed Ripon (Student ID: CA/DF1/269964)
  */
 

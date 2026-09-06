@@ -1,6 +1,6 @@
 /**
  * Shariar Ahamed Ripon — Official Portfolio Gateway Script
- * CodeAlpha Frontend Development Internship • Task 03
+ * CodeAlpha Frontend Development Internship — Portfolio
  * Author: Shariar Ahamed Ripon (CA/DF1/269964)
  */
 
